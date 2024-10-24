@@ -77,7 +77,7 @@ class Usuario:
 
 
 ```
-
+>[!NOTE]
 💡 Nota: No olvides prestar atención a la correcta estructuración de las clases y métodos. 🧠
 🚀 Entrega
 Subir los archivos de los diagramas (como imagen o PDF). 🖼️
