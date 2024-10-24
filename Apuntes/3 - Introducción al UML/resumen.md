@@ -4,7 +4,7 @@ En este documento, exploraremos el Lenguaje Unificado de Modelado (UML), una her
 
     📚 Filosofía del UML: La importancia de abstraerse de los detalles de implementación durante el modelado para evitar decisiones prematuras que puedan afectar la calidad del sistema 
 
-.
+
 🔤 Sintaxis y Semántica: La diferencia entre la correcta construcción de modelos y su interpretación, y cómo esto garantiza una comprensión uniforme entre los desarrolladores
 .
 📝 Documentación: Cómo el UML no solo sirve para modelar, sino que también genera documentación valiosa que facilita la comprensión y el mantenimiento del software
