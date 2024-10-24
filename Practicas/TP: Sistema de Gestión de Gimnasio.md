@@ -76,10 +76,9 @@ class Usuario:
         pass
 
 
-
+```
 
 💡 Nota: No olvides prestar atención a la correcta estructuración de las clases y métodos. 🧠
 🚀 Entrega
-
-    Subir los archivos de los diagramas (como imagen o PDF). 🖼️
-    Subir el código con la estructura de clases en un archivo .py. 💾
+Subir los archivos de los diagramas (como imagen o PDF). 🖼️
+Subir el código con la estructura de clases en un archivo .py. 💾
