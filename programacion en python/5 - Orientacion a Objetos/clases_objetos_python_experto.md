@@ -1,18 +1,21 @@
+
 # 🐍 Guía Experta: Programación Orientada a Objetos en Python
 
 ## 📑 Índice
 1. [Fundamentos Avanzados](#fundamentos-avanzados)
-2. [Patrones de Diseño y Mejores Prácticas](#patrones-de-diseño)
-3. [Metaprogramación y Decoradores](#metaprogramación)
-4. [Gestión Avanzada de Memoria](#gestión-de-memoria)
-5. [Protocolos y Métodos Especiales](#protocolos)
-6. [Concurrencia y POO](#concurrencia)
+2. [Patrones de Diseño y Mejores Prácticas](#patrones-de-diseño-y-mejores-prácticas)
+3. [Metaprogramación y Decoradores](#metaprogramación-y-decoradores)
+4. [Gestión Avanzada de Memoria](#gestión-avanzada-de-memoria)
+5. [Protocolos y Métodos Especiales](#protocolos-y-métodos-especiales)
+6. [Concurrencia y POO](#concurrencia-y-poo)
 
-## <a name="fundamentos-avanzados"></a>🎯 Fundamentos Avanzados
+---
+
+## 🎯 Fundamentos Avanzados
 
 ### Descriptores y Control de Atributos
 
-Los descriptores permiten un control fino sobre el acceso a atributos:
+Los **descriptores** permiten personalizar el acceso y la manipulación de atributos en las clases. Esta es una característica avanzada que te da control sobre el comportamiento de atributos individuales cuando se acceden, asignan o eliminan.
 
 ```python
 class Validador:
@@ -36,7 +39,11 @@ class Validador:
         if self.maximo is not None and value > self.maximo:
             raise ValueError(f"{self._nombre} no puede ser mayor que {self.maximo}")
         instance.__dict__[self._nombre] = value
+```
 
+Este código crea un descriptor que controla los valores permitidos para atributos específicos, lanzando excepciones si los valores asignados están fuera de los límites definidos. En la clase `Coche`, se utilizan descriptores para validar `velocidad` y `año`.
+
+```python
 class Coche:
     velocidad = Validador(0, 300)  # Velocidad entre 0 y 300 km/h
     año = Validador(1886, 2024)    # Año entre 1886 y 2024
@@ -48,6 +55,8 @@ class Coche:
 
 ### Slots y Optimización de Memoria
 
+Los **slots** son una técnica de optimización en Python que restringe los atributos permitidos en una clase, lo que resulta en una menor huella de memoria.
+
 ```python
 class CocheOptimizado:
     __slots__ = ['marca', 'modelo', 'velocidad']  # Restringe y optimiza atributos
@@ -58,9 +67,15 @@ class CocheOptimizado:
         self.velocidad = 0
 ```
 
-## <a name="patrones-de-diseño"></a>🏗️ Patrones de Diseño y Mejores Prácticas
+Al utilizar `__slots__`, se evita la creación de un diccionario para cada instancia de la clase, lo que reduce el consumo de memoria.
+
+---
+
+## 🏗️ Patrones de Diseño y Mejores Prácticas
 
 ### Patrón Singleton con Metaclase
+
+El **Patrón Singleton** garantiza que una clase solo tenga una instancia en todo momento. Con metaclases, puedes controlar la creación de instancias de clases, lo que permite implementar este patrón de manera elegante.
 
 ```python
 class Singleton(type):
@@ -78,50 +93,13 @@ class ConfiguracionGlobal(metaclass=Singleton):
         self.puerto = 8000
 ```
 
-### Patrón Observer
+---
 
-```python
-from typing import List, Protocol
-from abc import ABC, abstractmethod
-
-class Observer(Protocol):
-    def actualizar(self, mensaje: str) -> None: ...
-
-class Sujeto:
-    def __init__(self):
-        self._observadores: List[Observer] = []
-        self._estado: str = ""
-
-    def agregar_observador(self, observador: Observer) -> None:
-        self._observadores.append(observador)
-
-    def notificar_observadores(self) -> None:
-        for observador in self._observadores:
-            observador.actualizar(self._estado)
-
-    @property
-    def estado(self) -> str:
-        return self._estado
-
-    @estado.setter
-    def estado(self, valor: str) -> None:
-        self._estado = valor
-        self.notificar_observadores()
-
-class MonitorSistema:
-    def actualizar(self, mensaje: str) -> None:
-        print(f"Monitor: Nuevo estado detectado - {mensaje}")
-
-# Uso
-monitor = MonitorSistema()
-sistema = Sujeto()
-sistema.agregar_observador(monitor)
-sistema.estado = "¡Alerta! Temperatura alta"
-```
-
-## <a name="metaprogramación"></a>🔄 Metaprogramación y Decoradores
+## 🔄 Metaprogramación y Decoradores
 
 ### Decorador de Clase con Parámetros
+
+Los **decoradores de clase** permiten modificar el comportamiento de las clases completas. En este caso, se usa para registrar el tiempo de ejecución de métodos que superen un umbral específico.
 
 ```python
 from functools import wraps
@@ -149,22 +127,17 @@ def registrar_tiempo_ejecucion(umbral: float = 0.0):
                 return attr
         return ClaseWrapper
     return decorador
-
-@registrar_tiempo_ejecucion(umbral=1.0)
-class ProcesadorDatos:
-    def procesar(self, datos: list) -> list:
-        time.sleep(1.5)  # Simulación de procesamiento
-        return sorted(datos)
 ```
 
-## <a name="gestión-de-memoria"></a>🧮 Gestión Avanzada de Memoria
+---
+
+## 🧮 Gestión Avanzada de Memoria
 
 ### Context Managers Personalizados
 
-```python
-from typing import Optional
-import contextlib
+Los **context managers** permiten la gestión eficiente de recursos, asegurando que se liberen correctamente incluso si ocurre una excepción. Python permite definir context managers personalizados mediante `__enter__` y `__exit__`, o utilizando decoradores como `@contextmanager`.
 
+```python
 class RecursoBase:
     def __init__(self, nombre: str):
         self.nombre = nombre
@@ -177,18 +150,9 @@ class RecursoBase:
     def liberar(self) -> None:
         print(f"Liberando recurso {self.nombre}")
         self._recurso = None
+```
 
-class AdministradorRecursos:
-    def __init__(self, recurso: RecursoBase):
-        self.recurso = recurso
-
-    def __enter__(self) -> RecursoBase:
-        self.recurso.inicializar()
-        return self.recurso
-
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
-        self.recurso.liberar()
-
+```python
 @contextlib.contextmanager
 def administrar_recurso(nombre: str):
     recurso = RecursoBase(nombre)
@@ -197,23 +161,17 @@ def administrar_recurso(nombre: str):
         yield recurso
     finally:
         recurso.liberar()
-
-# Uso
-with AdministradorRecursos(RecursoBase("DB")):
-    print("Trabajando con el recurso...")
-
-with administrar_recurso("Cache"):
-    print("Trabajando con el cache...")
 ```
 
-## <a name="protocolos"></a>📜 Protocolos y Métodos Especiales
+---
+
+## 📜 Protocolos y Métodos Especiales
 
 ### Implementación de Protocolos
 
-```python
-from typing import Iterator, Iterable, Any
-from collections.abc import Sequence
+Un protocolo define un conjunto de métodos que una clase debe implementar. Aquí, `ListaCircular` es una clase que implementa el protocolo `Sequence`, lo que permite que la clase actúe como una lista circular.
 
+```python
 class ListaCircular(Sequence):
     def __init__(self, datos: Iterable[Any]):
         self._datos = list(datos)
@@ -223,149 +181,42 @@ class ListaCircular(Sequence):
     
     def __getitem__(self, indice: int) -> Any:
         return self._datos[indice % len(self)]
-    
-    def __iter__(self) -> Iterator[Any]:
-        return iter(self._datos)
-    
-    def __contains__(self, item: Any) -> bool:
-        return item in self._datos
-    
-    def __reversed__(self) -> Iterator[Any]:
-        return reversed(self._datos)
-
-# Uso
-lista = ListaCircular([1, 2, 3])
-print(lista[4])  # Imprime 2 (índice 4 % 3 = 1)
 ```
 
-## <a name="concurrencia"></a>🔄 Concurrencia y POO
+---
+
+## 🔄 Concurrencia y POO
 
 ### Patrones de Concurrencia
 
+La concurrencia en Python puede lograrse utilizando **bloqueos** y compartiendo datos de manera segura entre hilos con `Lock`.
+
 ```python
 from threading import Lock
-from typing import Generic, TypeVar
 
-T = TypeVar('T')
-
-class Compartido(Generic[T]):
-    """Wrapper thread-safe para valores compartidos"""
-    def __init__(self, valor: T):
+class Compartido:
+    def __init__(self, valor):
         self._valor = valor
         self._lock = Lock()
 
-    def obtener(self) -> T:
+    def obtener(self):
         with self._lock:
             return self._valor
-
-    def establecer(self, nuevo_valor: T) -> None:
-        with self._lock:
-            self._valor = nuevo_valor
-
-    def modificar(self, func: Callable[[T], T]) -> None:
-        with self._lock:
-            self._valor = func(self._valor)
-
-# Uso
-contador = Compartido(0)
-contador.modificar(lambda x: x + 1)
-print(contador.obtener())  # Thread-safe
 ```
 
-### Mixins para Funcionalidad Thread-Safe
+--- 
 
-```python
-from threading import RLock
-from typing import Any
-
-class ThreadSafeMixin:
-    def __init__(self):
-        self._lock = RLock()
-
-    def ejecutar_seguro(self, func: Callable[[], Any]) -> Any:
-        with self._lock:
-            return func()
-
-class CacheThreadSafe(ThreadSafeMixin):
-    def __init__(self):
-        super().__init__()
-        self._cache = {}
-
-    def get(self, key: str) -> Any:
-        return self.ejecutar_seguro(
-            lambda: self._cache.get(key)
-        )
-
-    def set(self, key: str, value: Any) -> None:
-        self.ejecutar_seguro(
-            lambda: self._cache.update({key: value})
-        )
-```
-
-## 🎓 Conceptos Avanzados Adicionales
-
-### Type Hints y Genéricos
-
-```python
-from typing import TypeVar, Generic, List, Optional
-
-T = TypeVar('T')
-
-class Contenedor(Generic[T]):
-    def __init__(self, valor: Optional[T] = None):
-        self._valor = valor
-
-    def obtener(self) -> Optional[T]:
-        return self._valor
-
-    def establecer(self, valor: T) -> None:
-        self._valor = valor
-
-# Uso con type hints
-contenedor_str: Contenedor[str] = Contenedor("Hola")
-contenedor_int: Contenedor[int] = Contenedor(42)
-```
-
-### Propiedades Calculadas y Caching
-
-```python
-from functools import cached_property
-from datetime import datetime, timedelta
-
-class Sensor:
-    def __init__(self, intervalo_lectura: timedelta):
-        self.intervalo_lectura = intervalo_lectura
-        self._ultima_lectura = None
-        self._valor_cache = None
-
-    @cached_property
-    def lectura(self) -> float:
-        """Lectura cacheada del sensor"""
-        ahora = datetime.now()
-        if (self._ultima_lectura is None or 
-            ahora - self._ultima_lectura > self.intervalo_lectura):
-            self._ultima_lectura = ahora
-            self._valor_cache = self._leer_sensor()
-        return self._valor_cache
-
-    def _leer_sensor(self) -> float:
-        # Simulación de lectura de sensor
-        return 42.0
-```
+## 🎓 Ejercicios de Nivel Experto
+- Implementa un sistema de caché thread-safe con expiración de elementos.
+- Crea un ORM simple usando metaclases y descriptores.
+- Desarrolla un sistema de plugins usando importación dinámica.
+- Implementa un pool de conexiones con límite de recursos.
+- Crea un decorador que implemente retry con backoff exponencial.
 
 ## 📚 Recursos y Referencias Avanzadas
 
-- [Python Data Model](https://docs.python.org/3/reference/datamodel.html)
-- [Python Type Hints](https://docs.python.org/3/library/typing.html)
-- [Python Design Patterns](https://python-patterns.guide/)
-- [Python Descriptors](https://docs.python.org/3/howto/descriptor.html)
-- [Python Metaclasses](https://docs.python.org/3/reference/datamodel.html#metaclasses)
-
-## 🎯 Ejercicios de Nivel Experto
-
-1. Implementa un sistema de caché thread-safe con expiración de elementos
-2. Crea un ORM simple usando metaclases y descriptores
-3. Desarrolla un sistema de plugins usando importación dinámica
-4. Implementa un pool de conexiones con límite de recursos
-5. Crea un decorador que implemente retry con backoff exponencial
-
+- Python Data Model
+- Python Type Hints
+- Python Design Patterns
+- Python Descriptors
+- Python Metaclasses
