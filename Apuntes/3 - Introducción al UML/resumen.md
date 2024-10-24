@@ -13,7 +13,7 @@ En este documento, exploraremos el Lenguaje Unificado de Modelado (UML), una her
 .
 🏗️ Comprensión de los Modelos: Definición de un modelo y su relevancia en el desarrollo de software, comparándolo con un plano arquitectónico
 
-    .
+
 
 >[!NOTE]
 [🎥 Atención: Video Explicativo](https://youtu.be/1I979cB4QWQ)
