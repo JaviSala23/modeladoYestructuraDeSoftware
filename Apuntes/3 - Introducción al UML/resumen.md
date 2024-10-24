@@ -1,4 +1,4 @@
-v🌟 Resumen del Documento sobre UML
+🌟 Resumen del Documento sobre UML
 
 En este documento, exploraremos el Lenguaje Unificado de Modelado (UML), una herramienta esencial para el análisis y diseño de software. A lo largo de estas páginas, abordaremos los siguientes temas:
 
