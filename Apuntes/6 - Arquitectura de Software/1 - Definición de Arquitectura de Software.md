@@ -29,13 +29,9 @@ Una arquitectura bien definida:
 
 Ejemplo Gráfico de Arquitectura en Capas:
 
-plaintext
 
-+-----------------+    +-------------------+
-|   Capa de UI    |    |   Capa de Negocio  |
-+-----------------+    +-------------------+
-| Capa de Servicios |   | Capa de Persistencia|
-+-----------------+    +-------------------+
+![Descripción de la imagen](../recuros/ejemplo_grafico_artq_Capas.png)
+
 
 >[!NOTE]
 [🎥 Video Explicativo](https://www.youtube.com/watch?v=PKyTFZtRztk)
