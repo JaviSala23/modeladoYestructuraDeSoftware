@@ -46,15 +46,13 @@ plaintext
         Aislamiento de responsabilidades. 🔒
         Reutilización de capas comunes. ♻️
 
-plaintext
 
-+-------------------------+
-|      Capa de Presentación|
-+-------------------------+
-|      Capa de Negocio     |
-+-------------------------+
-|     Capa de Datos        |
-+-------------------------+
+
+|                           Capa de Presentación                         |
+|------------------------------------------------------------------------|
+|                             Capa de Negocio                            |
+|------------------------------------------------------------------------|
+|                              Capa de Datos                             |
 
 4. Cliente-Servidor 💻
 
