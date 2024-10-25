@@ -5,9 +5,12 @@ Patrones Comunes 🔍
 1. Modelo-Vista-Controlador (MVC) 🎨
 
     Descripción: Divide la aplicación en tres componentes principales:
-        Modelo: Representa los datos y la lógica de negocio. 📊
-        Vista: Muestra los datos al usuario y gestiona la interfaz de usuario. 🖥️
-        Controlador: Maneja la interacción del usuario, modificando el modelo o la vista según sea necesario. 🎛️
+   
+        - Modelo: Representa los datos y la lógica de negocio. 📊
+   
+        - Vista: Muestra los datos al usuario y gestiona la interfaz de usuario. 🖥️
+   
+        - Controlador: Maneja la interacción del usuario, modificando el modelo o la vista según sea necesario. 🎛️
 
     Aplicación: Muy utilizado en el desarrollo de aplicaciones web. Ejemplos incluyen frameworks como Django, Ruby on Rails, y ASP.NET MVC.
 
