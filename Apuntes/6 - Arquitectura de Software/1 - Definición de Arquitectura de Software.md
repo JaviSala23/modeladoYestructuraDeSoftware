@@ -27,18 +27,11 @@ Una arquitectura bien definida:
     Aumenta la flexibilidad para adaptarse a cambios.
     Facilita la toma de decisiones técnicas críticas a lo largo del ciclo de vida del proyecto.
 
-Ejemplo Gráfico de Arquitectura en Capas:
-
-
-![Ejemplo Gráfico de Arquitectura de Capas](../recursos/imagenes/ejemplo_grafico_artq_Capas.png)
-
-
-
-
-
 
 >[!NOTE]
 [🎥 Video Explicativo](https://www.youtube.com/watch?v=PKyTFZtRztk)
+[📝 Arquitectura de capas](ruta/a/tus/apuntes](https://somospnt.com/blog/118-arquitectura-de-capas)
+[📝 Arquitectura de capas IBM](ruta/a/tus/apuntes](https://somospnt.com/blog/118-arquitectura-de-capas](https://www.ibm.com/es-es/topics/three-tier-architecture)
 
 
 Referencias Adicionales:
