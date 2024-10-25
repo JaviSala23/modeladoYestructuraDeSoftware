@@ -30,7 +30,8 @@ Una arquitectura bien definida:
 Ejemplo Gráfico de Arquitectura en Capas:
 
 
-![Ejemplo Gráfico de Arquitectura de Capas](Apuntes/recursos/imagenes/ejemplo_grafico_artq_Capas.png)
+![Ejemplo Gráfico de Arquitectura de Capas](modeladoYestructuraDeSoftware/Apuntes/recursos/imagenes/ejemplo_grafico_artq_Capas.png)
+
 
 
 
