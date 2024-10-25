@@ -30,8 +30,7 @@ Una arquitectura bien definida:
 Ejemplo Gráfico de Arquitectura en Capas:
 
 
-![Descripción de la imagen]([../recursos/imagenes/ejemplo_grafico_artq_Capas.png](https://www.researchgate.net/profile/Raul-Gaviria-Valencia-2/publication/339887002/figure/fig2/AS:868381427253248@1584049674284/Figura-5-Arquitectura-Cliente-Servidor-en-tres-capas.ppm))
-
+![Descripción de la imagen](https://www.researchgate.net/profile/Raul-Gaviria-Valencia-2/publication/339887002/figure/fig2/AS:868381427253248@1584049674284/Figura-5-Arquitectura-Cliente-Servidor-en-tres-capas.ppm)
 
 >[!NOTE]
 [🎥 Video Explicativo](https://www.youtube.com/watch?v=PKyTFZtRztk)
