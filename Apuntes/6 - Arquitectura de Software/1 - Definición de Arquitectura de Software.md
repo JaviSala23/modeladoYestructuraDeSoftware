@@ -31,9 +31,8 @@ Una arquitectura bien definida:
 >[!NOTE]
 [🎥 Video Explicativo](https://www.youtube.com/watch?v=PKyTFZtRztk)
 
-[📝 Arquitectura de capas](https://somospnt.com/blog/118-arquitectura-de-capas)
-
-[📝 Arquitectura de capas IBM](https://somospnt.com/blog/118-arquitectura-de-capas](https://www.ibm.com/es-es/topics/three-tier-architecture)
+[📝 Arquitectura de capas IBM (somospnt)](https://somospnt.com/blog/118-arquitectura-de-capas)  
+[📝 Arquitectura de capas IBM (IBM)](https://www.ibm.com/es-es/topics/three-tier-architecture)
 
 
 Referencias Adicionales:
