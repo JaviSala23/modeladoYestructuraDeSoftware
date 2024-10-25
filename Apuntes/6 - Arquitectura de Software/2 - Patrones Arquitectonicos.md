@@ -18,12 +18,12 @@ Patrones Comunes 🔍
         Separación clara de responsabilidades. ✅
         Facilita el mantenimiento y la escalabilidad. 📈
 
-plaintext
 
+```
   +---------+      +---------+       +---------+
   |  Vista  | <--> |Controlador| <--> |  Modelo |
   +---------+      +---------+       +---------+
-
+```
 2. Microservicios 🧩
 
     Descripción: En lugar de construir una aplicación monolítica, la arquitectura de microservicios divide el sistema en pequeños servicios independientes, cada uno responsable de una función específica.
@@ -45,7 +45,7 @@ plaintext
         Facilidad de mantenimiento. 🛠️
         Aislamiento de responsabilidades. 🔒
         Reutilización de capas comunes. ♻️
-
+```
 
 +----------------------------+
 |    Capa de Presentación    |
@@ -54,7 +54,7 @@ plaintext
 +----------------------------+
 |        Capa de Datos       |
 +----------------------------+
-
+```
 
 4. Cliente-Servidor 💻
 
