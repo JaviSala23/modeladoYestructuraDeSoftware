@@ -96,6 +96,12 @@ Los patrones arquitectónicos ayudan a estructurar los sistemas de manera eficie
 >[!NOTE]
 [🎥 Video Explicativo](https://www.youtube.com/watch?v=87lBMvk75eM&list=PLFHx3afTdaY0KR3h_NVjoWajr2OLRiqPv)
 
+[🎥 Video Explicativo](https://www.youtube.com/watch?v=uFDT-NHPe-s&list=PLFHx3afTdaY0KR3h_NVjoWajr2OLRiqPv&index=3)
+
+[🎥 Video Explicativo](https://www.youtube.com/watch?v=QxqkmOC-eQY&list=PLFHx3afTdaY0KR3h_NVjoWajr2OLRiqPv&index=3)
+
+
+
 
 
 Referencias Adicionales 📚:
